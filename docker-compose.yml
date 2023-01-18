@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  rtr:
+    container_name: 'free-rtr'
+    image: 'free-rtr'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
+    command: bash -c "bash"
+    volumes:
+      - ./:/src
+    working_dir: /src
