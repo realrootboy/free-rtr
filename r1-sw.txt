@@ -1,0 +1,15 @@
+hostname r1
+!
+vrf definition v1
+ exit
+!
+int eth1
+ exit
+!
+server telnet tel
+ security protocol telnet
+ no exec authorization
+ no login authentication
+ vrf v1
+ exit
+!

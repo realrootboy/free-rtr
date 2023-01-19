@@ -8,7 +8,10 @@ services:
       dockerfile: Dockerfile
     tty: true
     stdin_open: true
-    command: bash -c "bash"
+    command: bash -c "/src/start-r.bash"
+    ports: 
+      - "1123:1123"
+      - "2223:2223"
     volumes:
       - ./:/src
     working_dir: /src
