@@ -1,0 +1,41 @@
+hostname r2
+!
+vrf definition v1
+ exit
+!
+int eth1
+ no description
+ vrf forwarding v1
+ ipv4 address 10.0.1.2 255.255.255.248
+ no shutdown
+ no log-link-change
+ exit
+!
+int eth2
+ no description
+ vrf forwarding v1
+ ipv4 address 10.0.2.1 255.255.255.248
+ no shutdown
+ no log-link-change
+ exit
+!
+int eth3
+ no description
+ vrf forwarding v1
+ ipv4 address 10.0.3.1 255.255.255.248
+ no shutdown
+ no log-link-change
+ exit
+!
+ipv4 route v1 10.0.1.1 255.255.255.248 10.0.1.1
+ipv4 route v1 10.0.2.2 255.255.255.248 10.0.2.2
+ipv4 route v1 10.0.3.2 255.255.255.248 10.0.3.2
+!
+server telnet tel
+ security protocol telnet
+ no exec authorization
+ no login authentication
+ vrf v1
+ exit
+!
+end

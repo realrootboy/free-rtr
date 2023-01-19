@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   rtr:
-    container_name: 'free-rtr'
+    container_name: 'free-rtr-static'
     image: 'free-rtr'
     build:
       context: .
@@ -10,8 +10,13 @@ services:
     stdin_open: true
     command: bash -c "/src/start-r.bash && bash"
     ports: 
-      - "1123:1123"
-      - "2223:2223"
+      - "2001:2001"
+      - "2002:2002"
+      - "2003:2003"
+      - "2004:2004"
+      - "2005:2005"
+    environment:
+      - directory=/src/static
     volumes:
       - ./:/src
     working_dir: /src
