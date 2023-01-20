@@ -7,6 +7,7 @@ int eth1
  no description
  vrf forwarding v1
  ipv4 address 10.0.3.2 255.255.255.248
+ ipv6 address 2018:32::3:2 ffff:ffff:ffff:ffff::
  no shutdown
  no log-link-change
  exit
@@ -15,12 +16,16 @@ int eth2
  no description
  vrf forwarding v1
  ipv4 address 10.0.4.1 255.255.255.248
+ ipv6 address 2018:32::4:1 ffff:ffff:ffff:ffff::
  no shutdown
  no log-link-change
  exit
 !
 ipv4 route v1 10.0.3.1 255.255.255.248 10.0.3.1
 ipv4 route v1 10.0.4.2 255.255.255.248 10.0.4.2
+!
+ipv6 route v1 2018:32::3:1 ffff:ffff:ffff:ffff:: 2018:32::3:1
+ipv6 route v1 2018:32::4:2 ffff:ffff:ffff:ffff:: 2018:32::4:2
 !
 server telnet tel
  security protocol telnet
