@@ -9,6 +9,7 @@ services:
     tty: true
     stdin_open: true
     command: bash -c "/src/start-r.bash && bash"
+    #command: bash -c "bash"
     ports: 
       - "2001:2001"
       - "2002:2002"

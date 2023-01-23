@@ -1,50 +1,40 @@
 hostname r2
 !
 vrf definition v1
+ rd 1:1
  exit
 !
 int loopback0
- no description
  vrf forwarding v1
- ipv4 address 2.2.2.202 255.255.255.255
- ipv6 address 4321::202 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
- no shutdown
- no log-link-change
+ ipv4 address 2.2.2.201 255.255.255.255
+ ipv6 address 4321::201 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+ exit
 !
 int eth1
- no description
  vrf forwarding v1
  ipv4 address 10.0.1.2 255.255.255.248
- ipv6 address 2018:32::1:2 ffff:ffff:ffff:ffff::
- no shutdown
- no log-link-change
+ ipv6 addr 2018:12::2 ffff:ffff:ffff:ffff::
  exit
 !
 int eth2
- no description
  vrf forwarding v1
  ipv4 address 10.0.2.1 255.255.255.248
- ipv6 address 2018:32::2:1 ffff:ffff:ffff:ffff::
- no shutdown
- no log-link-change
+ ipv6 address 2018:12::22 ffff:ffff:ffff:ffff::
  exit
 !
 int eth3
- no description
  vrf forwarding v1
  ipv4 address 10.0.3.1 255.255.255.248
- ipv6 address 2018:32::3:1 ffff:ffff:ffff:ffff::
- no shutdown
- no log-link-change
+ ipv6 address 2018:12::23 ffff:ffff:ffff:ffff::
  exit
 !
 ipv4 route v1 2.2.2.101 255.255.255.248 10.0.1.1
-ipv4 route v1 2.2.2.301 255.255.255.248 10.0.2.2
-ipv4 route v1 2.2.2.401 255.255.255.248 10.0.3.2
+ipv4 route v1 2.2.2.31 255.255.255.248 10.0.2.2
+ipv4 route v1 2.2.2.41 255.255.255.248 10.0.3.2
 !
-ipv6 route v1 4321::101 ffff:ffff:ffff:ffff:: 2018:32::1:1
-ipv6 route v1 4321::301 ffff:ffff:ffff:ffff:: 2018:32::2:2
-ipv6 route v1 4321::401 ffff:ffff:ffff:ffff:: 2018:32::3:2
+ipv6 route v1 4321::101 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::1
+ipv6 route v1 4321::31 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::31
+ipv6 route v1 4321::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::41
 !
 server telnet tel
  security protocol telnet
