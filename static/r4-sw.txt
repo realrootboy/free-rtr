@@ -1,7 +1,16 @@
 hostname r4
 !
 vrf definition v1
+ rd 1:1
  exit
+!
+int loopback0
+ no description
+ vrf forwarding v1
+ ipv4 address 2.2.2.401 255.255.255.255
+ ipv6 address 4321::401 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+ no shutdown
+ no log-link-change
 !
 int eth1
  no description
@@ -21,11 +30,11 @@ int eth2
  no log-link-change
  exit
 !
-ipv4 route v1 10.0.3.1 255.255.255.248 10.0.3.1
-ipv4 route v1 10.0.4.2 255.255.255.248 10.0.4.2
+ipv4 route v1 2.2.2.202 255.255.255.248 10.0.3.1
+ipv4 route v1 2.2.2.404 255.255.255.248 10.0.4.2
 !
-ipv6 route v1 2018:32::3:1 ffff:ffff:ffff:ffff:: 2018:32::3:1
-ipv6 route v1 2018:32::4:2 ffff:ffff:ffff:ffff:: 2018:32::4:2
+ipv6 route v1 4321::201 ffff:ffff:ffff:ffff:: 2018:32::3:1
+ipv6 route v1 4321::501 ffff:ffff:ffff:ffff:: 2018:32::4:2
 !
 server telnet tel
  security protocol telnet
