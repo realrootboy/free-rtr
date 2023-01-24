@@ -10,29 +10,31 @@ int loopback0
  ipv6 address 4321::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
  exit
 !
-int loopbaack1
+int loopback1
  vrf forwarding v1
  ipv4 address 2.2.2.6 255.255.255.255
- ipv6 address 4321::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+ ipv6 address 4322::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
  exit
 !
 int eth1
  vrf forwarding v1
  ipv4 address 10.0.3.2 255.255.255.248
- ipv6 address 2018:12::41 ffff:ffff:ffff:ffff::
+ ipv6 address 2018:12:4::1 ffff:ffff:ffff:ffff::
  exit
 !
 int eth2
  vrf forwarding v1
  ipv4 address 10.0.4.1 255.255.255.248
- ipv6 address 2018:12::42 ffff:ffff:ffff:ffff::
+ ipv6 address 2018:12:5::2 ffff:ffff:ffff:ffff::
  exit
 !
 ipv4 route v1 0.0.0.0 0.0.0.0 10.0.3.1
 ipv4 route v1 2.2.2.5 255.255.255.0 10.0.4.2
 ipv4 route v1 2.2.2.2 255.255.255.0 10.0.3.1
 !
-ipv6 route v1 4321::201 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::21
+ipv6 route v1 :: :: 2018:12:4::2
+ipv6 route v1 4321::201 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12:4::2
+ipv6 route v1 4321::51 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12:5::1
 !
 server telnet tel
  security protocol telnet

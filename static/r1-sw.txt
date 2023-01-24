@@ -13,12 +13,12 @@ int loopback0
 int eth1
  vrf forwarding v1
  ipv4 address 10.0.1.1 255.255.255.248
- ipv6 addr 2018:12::1 ffff:ffff:ffff:ffff::
+ ipv6 addr 2018:12:1::1 ffff:ffff:ffff:ffff::
  exit
 !
 ipv4 route v1 0.0.0.0 0.0.0.0 10.0.1.2
 !
-ipv6 route v1 :: :: 2018:12::2
+ipv6 route v1 :: :: 2018:12:1::2
 !
 server telnet tel
  security protocol telnet
