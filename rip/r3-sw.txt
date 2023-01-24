@@ -26,7 +26,7 @@ interface loopback0
 int eth1
  vrf forwarding v1
  ipv4 address 1.1.2.2 255.255.255.0
- ipv6 address 1234:3::1 ffff:ffff::
+ ipv6 address 2018:12:1:2::2 ffff:ffff:ffff:ffff::
  router rip4 1 enable
  router rip6 1 enable
  no shutdown
@@ -36,7 +36,7 @@ int eth1
 int eth2
  vrf forwarding v1
  ipv4 address 1.3.2.1 255.255.255.0
- ipv6 address 1234:3::2 ffff:ffff::
+ ipv6 address 2018:12:3:2::1 ffff:ffff:ffff:ffff::
  router rip4 1 enable
  router rip6 1 enable
  no shutdown
@@ -46,7 +46,7 @@ int eth2
 int eth3
  vrf forwarding v1
  ipv4 address 1.3.3.1 255.255.255.0
- ipv6 address 1234:3::3 ffff:ffff::
+ ipv6 address 2018:12:3:3::1 ffff:ffff:ffff:ffff::
  router rip4 1 enable
  router rip6 1 enable
  no shutdown

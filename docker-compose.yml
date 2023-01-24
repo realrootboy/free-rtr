@@ -17,8 +17,8 @@ services:
       - "2004:2004"
       - "2005:2005"
     environment:
-      - directory=/src/static
-      - routern=5
+      - directory=/src/rip
+      - routern=4
     volumes:
       - ./:/src
     working_dir: /src
