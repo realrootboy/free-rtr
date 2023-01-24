@@ -6,7 +6,13 @@ vrf definition v1
 !
 int loopback0
  vrf forwarding v1
- ipv4 address 2.2.2.41 255.255.255.255
+ ipv4 address 2.2.2.4 255.255.255.255
+ ipv6 address 4321::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+ exit
+!
+int loopbaack1
+ vrf forwarding v1
+ ipv4 address 2.2.2.6 255.255.255.255
  ipv6 address 4321::41 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
  exit
 !
@@ -22,11 +28,11 @@ int eth2
  ipv6 address 2018:12::42 ffff:ffff:ffff:ffff::
  exit
 !
-ipv4 route v1 2.2.2.201 255.255.255.248 10.0.3.1
-ipv4 route v1 2.2.2.51 255.255.255.248 10.0.4.2
+ipv4 route v1 0.0.0.0 0.0.0.0 10.0.3.1
+ipv4 route v1 2.2.2.5 255.255.255.248 10.0.4.2
+ipv4 route v1 2.2.2.2 255.255.255.248 10.0.3.1
 !
 ipv6 route v1 4321::201 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::21
-ipv6 route v1 4321::51 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 2018:12::51
 !
 server telnet tel
  security protocol telnet

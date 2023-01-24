@@ -6,7 +6,7 @@ vrf definition v1
 !
 int loopback0
  vrf forwarding v1
- ipv4 address 2.2.2.101 255.255.255.255
+ ipv4 address 2.2.2.1 255.255.255.255
  ipv6 address 4321::101 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
  exit
 !
