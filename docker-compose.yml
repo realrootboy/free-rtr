@@ -8,7 +8,8 @@ services:
       dockerfile: Dockerfile
     tty: true
     stdin_open: true
-    command: bash -c "/src/start-r.bash && bash"
+    #command: bash -c "/src/start-static.bash && bash"
+    command: bash -c "/src/start-rip.bash && bash"
     #command: bash -c "bash"
     ports: 
       - "2001:2001"
@@ -17,7 +18,8 @@ services:
       - "2004:2004"
       - "2005:2005"
     environment:
-      - directory=/src/static
+      - directory=/src/rip
+      - routern=4
     volumes:
       - ./:/src
     working_dir: /src

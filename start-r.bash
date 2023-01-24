@@ -1,7 +1,7 @@
 #!/bin/bash
 
 scriptdir=$(dirname $0)
-router_number=5
+router_number=${routern}
 
 for i in $(seq 1 $router_number)
 do
